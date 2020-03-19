@@ -3,7 +3,7 @@ import argparse
 import os, sys
 
 # Images imports
-from rawls.classes.rawls import Rawls
+from rawls.rawls import Rawls
 
 
 def write_progress(progress):
