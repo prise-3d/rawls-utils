@@ -35,7 +35,7 @@ def main():
     parser.add_argument('--output', type=str, help="output expected folder")
     parser.add_argument('--step', type=int, help="step number of samples")
     parser.add_argument('--ext', type=str, help="extension image choice", choices=['rawls', 'png'], default='png')
-    parser.add_argument('--gamma', type=str, help="extension image choice", choices=[0, 1], default=1)
+    parser.add_argument('--gamma', type=int, help="extension image choice", choices=[0, 1], default=1)
 
     args = parser.parse_args()
 
