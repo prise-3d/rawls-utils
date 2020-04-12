@@ -35,6 +35,7 @@ def main():
     parser.add_argument('--output', type=str, help="output expected folder")
     parser.add_argument('--step', type=int, help="step number of samples")
     parser.add_argument('--ext', type=str, help="extension image choice", choices=['rawls', 'png'], default='png')
+    parser.add_argument('--gamma', type=str, help="extension image choice", choices=[0, 1], default=1)
 
     args = parser.parse_args()
 
@@ -42,6 +43,7 @@ def main():
     p_output  = args.output
     p_step    = args.step
     p_ext     = '.' + args.ext
+    p_gamma   = bool(args.gamma)
 
     # load all rawls images path of folder
     images = [img for img in sorted(os.listdir(p_folder)) if '.rawls' in img]
@@ -75,7 +77,7 @@ def main():
             output_img_path = os.path.join(p_output, output_image_name)
 
             # load and save image as png
-            merged_img.save(output_img_path)
+            merged_img.save(output_img_path, p_gamma)
 
         # update progress information
         write_progress((i + 1) / number_of_images)
